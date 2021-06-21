@@ -5,16 +5,16 @@
             <PatternLayout pattern="%highlight{[%d{HH:mm:ss.SSS}] | %-5p | %-32.42t | %-32.42c{1} | %m%n}{FATAL=red blink, ERROR=red blink, WARN=yellow bold, INFO=white, DEBUG=green bold, TRACE=blue}"/>
         </Console>
 
-        <File name="MyFile" fileName="logs.log" immediateFlush="true" append="true">
+        <File name="MyFile" fileName="logs.log" immediateFlush="true" append="false">
             <PatternLayout pattern="%d{yyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
         </File>
 
     </Appenders>
     <Loggers>
-        <logger name="ru.otus.Otus" level="all" additivity="true"/>
-        <root level="all">
-            <appender-ref ref="Console" level="all"/>
-            <appender-ref ref="MyFile" level="all"/>
+        <logger name="ru.otus.Otus" level="info" additivity="true"/>
+        <root level="debug">
+            <appender-ref ref="Console" level="debug"/>
+            <appender-ref ref="MyFile" level="info"/>
         </root>
     </Loggers>
 </Configuration>
